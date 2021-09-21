@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+</head>
+
+<body>
+    <style>
+        .block {
+            border: 1px solid black;
+            margin: 0.25rem;
+            padding: 0.5rem;
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .fa {
+            font-size: 2.5rem;
+        }
+
+        .fish {
+            background-color: aquamarine;
+        }
+
+        .trhee {
+            background-color: greenyellow;
+        }
+    </style>
+
+    <div class="row fa">
+        <div class="block" style="flex-grow: 0;flex-basis: auto;text-align: center;">
+            <i class="fas fa-cat"></i>
+            кошечка
+        </div>
+        <div class="block" style="flex-grow: 4; text-align: center;">
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
+            пошла за
+        </div>
+        <div class="block fish" style="flex-grow: 0;flex-basis: auto;text-align: center;">
+            рыбкой
+            <i class="fas fa-fish"></i>
+        </div>
+    </div>
+    <div class="row fa">
+        <div class="block" style="flex-grow: 0;flex-basis: auto; text-align: center;">
+            <i class="fas fa-crow"></i>
+            ворона
+        </div>
+        <div class="block" style="flex-grow: 3;text-align: center; ">
+            <i class="fas fa-horse"></i>
+            <i class="fas fa-horse"></i>
+        </div>
+        <div class="block" style="flex-grow: 0;flex-basis: auto;text-align: center; ">
+            <i class="fas fa-dove"></i>
+            лягушка
+        </div>
+        <div class="block" style="flex-grow: 2;text-align: center; ">
+            <i class="fas fa-dog"></i>
+            собака
+        </div>
+        
+    </div>
+    <div class="row fa">
+        <div class="block" style="flex-grow: 0;flex-basis: auto;text-align: center; ">
+            <i class="fas fa-frog"></i>
+        </div>
+        <div class="block fish" style="flex-basis: auto;text-align: center;">
+            <i class="fas fa-fish"></i>
+        </div>
+        <div class="block fish" style="flex-basis: auto;text-align: center;">
+            <i class="fas fa-fish"></i>
+        </div>
+        <div class="block fish" style="flex-basis: auto;text-align: center;">
+            <i class="fas fa-fish"></i>
+        </div>
+        <div class="block" style="flex-grow: 0;flex-basis: auto;text-align: center; ">
+            <i class="fas fa-frog"></i>
+        </div>
+    </div>
+    <div class="row fa">
+        <div class="block trhee" style="flex-grow: 0;flex-basis: auto; text-align: center;">
+            <i class="fas fa-tree"></i>
+        </div>
+        <div class="block trhee" style="flex-grow: 0;flex-basis: auto;text-align: center; ">
+            <i class="fas fa-tree"></i>
+        </div>
+        <div class="block trhee" style="flex-grow: 0;flex-basis: auto;text-align: center; ">
+            <i class="fas fa-tree"></i>
+        </div>
+        <div class="block trhee" style="flex-grow: 0;flex-basis: auto;text-align: center; ">
+            <i class="fas fa-tree"></i>
+        </div>
+        <div class="block" style="text-align: center; ">
+            <i class="fas fa-crow"></i>
+        </div>
+    </div>
+</body>
+
+</html>

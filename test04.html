@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .paragraph1 {
+            background: #bbeaff;
+            text-align: center;
+        }
+
+        .paragraph2 {
+            background: #debbff;
+            text-align: center;
+            size: 500px;
+        }
+
+        .paragraph3 {
+            background: #ffbbc1;
+            text-align: center;
+            size: 50%;
+        }
+
+        .name {
+            display: inline-block;
+            padding: 8px;
+            background: rgb(128, 241, 113);
+        }
+
+        .adjective {
+            background: rgb(121, 131, 130);
+            transition: all 0.3s;
+        }
+
+        .paragraph1:hover .adjective:hover {
+            background: rgb(52, 255, 245);
+            cursor: pointer;
+            margin: 15px 0;
+            padding: 5px;
+            border-width: 7px;
+            box-shadow: 0 0 30px white;
+        }
+        .paragraph2:hover .adjective:hover {
+            background: rgb(130, 52, 255);
+            cursor: pointer;
+            margin: 15px 0;
+            padding: 5px;
+            border-width: 7px;
+            box-shadow: 0 0 30px white;
+        }
+        .paragraph3:hover .adjective:hover {
+            background: rgb(255, 52, 238);
+            cursor: pointer;
+            margin: 15px 0;
+            padding: 5px;
+            border-width: 7px;
+            box-shadow: 0 0 30px white;
+        }
+        .bordered {
+            border: 1px ridge rgb(255, 134, 195);
+            display: inline-block;
+            margin: 10px 0;
+            padding: 2px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px grey;
+        }
+
+        .paragraph1.bordered {
+            border: 4px solid black;
+        }
+
+        .paragraph2.bordered {
+            border: 4px dashed rgb(148, 66, 66);
+        }
+
+        .paragraph3.bordered {
+            border: 4px double rgb(31, 28, 214);
+        }
+
+        .paragraph1:hover .adjective {
+            background: red;
+        }
+        .paragraph2:hover .adjective {
+            background: rgb(255, 211, 116);
+        }
+        .paragraph3:hover .adjective {
+            background: rgb(232, 255, 149);
+        }
+    </style>
+    <div class="paragraph1 bordered">
+        <h1> <span class="adjective bordered">Американские</span> исследователи из Принстонской лаборатории
+            обнаружили механизм передачи памяти от одного организма к
+            другому, который сохраняется на протяжении нескольких
+            поколений.</h1>
+        Они обратили внимание, что когда организм сталкивается с угрозой, то он предупреждает собратьев об опасности.
+        Например, круглый червь <span class="name">C. Elegans</span> постоянно встречает на своем пути <span
+            class="adjective bordered">патогенные</span>
+        бактерии P. aeruginosa
+        (синегнойная палочка). В случае, если первые съедят вторых, то возникают заболевания.
+    </div>
+
+    <div class="paragraph2 bordered">
+        В рамках нового научного проекта ученые осознали, что черви, <span class="adjective bordered">пораженные</span>
+        бактериями, начинают избегать
+        последних.
+        Причем они передают такое поведение своим потомкам – до четырех <span
+            class="adjective bordered">следующих</span>
+        поколений.
+
+        «Мы обнаружили, что один червь может научить избегать <span class="adjective bordered">патогенную</span>
+        бактерию, причем
+        память о ней сохранится на
+        множество лет», — акцентировали авторы работы.</div>
+
+    <div class="paragraph3 bordered">
+        По их словам, поведение организмов не меняется, даже если специалисты измельчали их.<span
+        class="adjective bordered"> Научная</span> работа появилась на
+        портале <span class="name">Phys.org.</span>
+        Также <span class="name">МедиаПоток</span>
+        рассказывал, что память не только хранит информацию, а помогает оценивать ситуацию на лету.
+    </div>
+
+</body>
+
+</html>
