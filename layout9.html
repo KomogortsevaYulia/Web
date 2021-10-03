@@ -12,24 +12,56 @@
 </head>
 
 <body>
+    <style>
+        .main-image-wrapper {
+            width: 250px;
+            height: 250px;
+            border: 1px solid silver;
+            margin: 8px;
+            box-shadow: 0 0 16px rgb(165, 218, 243);
+            border-radius: 50%;
+            /* поставил 50% */
+            overflow: hidden;
+        }
 
+        .main-image {
+            height: 100%;
+        }
+    </style>
 
-    <div class="container">
-        <div class="row p-3 m-2 border border-5 border-white rounded" style="background-color: cornsilk;width:max-content; box-shadow: 0 0 15px grey;">
-                <div class="col-auto p-4 m-2 flex-column d-flex align-items-center" style="background-color: rgb(220, 247, 255);">
-                    <div class="row">Картинка</div>
-                    <div class="row "style="" >Том</div>
-                    <div class="row">Из мультфильма "Том и Джерри"</div>
+    <div class="container ">
+        <div class="row p-3 m-2 border border-5 border-white rounded"
+            style="background-color:floralwhite;width:max-content; box-shadow: 0 0 15px grey;">
+            <div class="col-auto p-4 m-2 flex-column d-flex align-items-center">
+                <div class="row main-image-wrapper">
+                    <img style="height: 250px" src="https://slovnet.ru/wp-content/uploads/2019/10/1-20.jpg" alt="">
+
                 </div>
+                <div class="row " style="font-size: 2em;">Том</div>
+                <div class="row">Из мультфильма "Том и Джерри"</div>
+            </div>
 
-                <div class="col-auto p-4 m-2 flex-column d-flex align-items-center" style="background-color: rgb(220, 255, 231);">
-                    <div class="row">Стих</div>
-                    <div class="row">
-                        <div class="col">Название силы</div>
-                        <div class="col">Знак</div>
-                    </div>
+            <div class="col-auto p-4 m-2 flex-column d-flex align-items-center"">
+                <div class=" row p-1 m-1" style="text-align: center;">
+                <p>Мультипликационный кот серо-голубого окраса, первый главный герой <br>
+                    мультсериала «Том и Джерри», гоняющийся за мышонком Джерри.<br>
+                    Его очень редко можно услышать говорящим, за исключением нескольких
+                    <br> мультфильмов . Его единственные заметные вокальные звуки <br>
+                    за пределами этого - это его различные крики, когда он <br>
+                    подвержен боли или панике. Он постоянно преследует Джерри, для <br>
+                    которого расставляет ловушки, многие из которых дают обратный <br>
+                    эффект и наносят ущерб ему, а не Джерри. Том редко собирается <br>
+                    съесть Джерри; только чтобы причинить ему боль или посоревноваться <br>
+                    с ним, идя на многое, чтобы помучить Джерри. Однако, как <br>
+                    показывает практика, Том иногда ладит с Джерри.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col">Интеллект,Хитрость,Музыкальность,Злость,Садизм</div>
+                <div class="col">Знаки</div>
             </div>
         </div>
+    </div>
     </div>
 
 
