@@ -13,17 +13,31 @@ $twig = new \Twig\Environment($loader);
 
 $url = $_SERVER["REQUEST_URI"];
 
+$title = "";
+$template = "";
+// $image = ""; убираем
+
+$context = []; // наш словарик, данные для шаблона принято называть контекстом
+
 if ($url == "/") {
-    // это убираем require "../views/main.html";
-    
-    echo $twig->render("main.html");
+    $title = "Главная";
+    $template = "main.twig";
 } elseif (preg_match("#/mermaid#", $url)) {
-    // и это тоже require "../views/mermaid.html";
+    $title = "Русалка";
+    $template = "base_image.twig";
     
-    echo $twig->render("mermaid.html");
+    $context['image'] = "/images/085_mermaid.jpg"; // передаем в контекст ключ image
 } elseif (preg_match("#/uranus#", $url)) {
-    // и вот это require "../views/uranus.html";
+    $title = "Уран";
+    $template = "base_image.twig";
     
-    echo $twig->render("uranus.html");
+    $context['image'] = "/images/086_uranus.jpg"; // и тут передаем в контекст ключ image
 }
+
+// название не пихаю в контекст в роутере,
+// потому что это отдельная сущность, общая для всех
+$context['title'] = $title;
+
+// ну и рендерю
+echo $twig->render($template, $context);
 ?>
