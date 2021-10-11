@@ -22,28 +22,32 @@ $context = []; // наш словарик, данные для шаблона п
 if ($url == "/") {
     $title = "Главная";
     $template = "main.twig";
-} elseif (preg_match("#/mermaid#", $url)) {
+} elseif (preg_match("#/Spathiphyllum#", $url)) {
     $title = "Спатифиллум";
     $template = "_object.twig";
-    
-    if (preg_match("#/mermaid#", $url)) {
-        $title = "Главная";
+  
+    ////////////////////////////////////
+    if (preg_match("#/Spathiphyllum/image#", $url)) {
+       
         $template = "image.twig";
-    } elseif (preg_match("#/mermaid#", $url)) {
-        $title = "Русалка";
+        $context['image'] = "/images/img-Spatif.jpg"; // передаем в контекст ключ image
+    } elseif (preg_match("#/Spathiphyllum/info#", $url)) {
+        
         $template = "sp_info.twig";
-        }
-} elseif (preg_match("#/mermaid#", $url)) {
+    }
+} elseif (preg_match("#/Anthurium#", $url)) {
     $title = "Антуриум";
     $template = "_object.twig";
     
-    if (preg_match("#/mermaid#", $url)) {
-        $title = "Главная";
+    if (preg_match("#/Anthurium/image#", $url)) {
+       
+        $context['image'] = "/images/img-Anthurium.jpg"; // передаем в контекст ключ image
+    
         $template = "image.twig";
-    } elseif (preg_match("#/mermaid#", $url)) {
-        $title = "Русалка";
+    } elseif (preg_match("#/Anthurium/info#", $url)) {
+        
         $template = "an_info.twig";
-        }
+    }
 }
 
 // название не пихаю в контекст в роутере,
