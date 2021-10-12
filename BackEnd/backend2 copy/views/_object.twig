@@ -12,7 +12,12 @@
     <a class="nav-link {{ type == 'текст' ? 'active' }}" href="/{{name}}/info">Описание</a>
   </li>
 </ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    
 {% block objectContent %}
-
+<p>Выберите раздел выше</p>
 {% endblock %}
+</li>
+</ul>
 {% endblock %}

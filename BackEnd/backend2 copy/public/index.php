@@ -18,6 +18,29 @@ $template = "";
 
 
 $context = []; // наш словарик, данные для шаблона принято называть контекстом
+$menu = [ // добавил список словариков
+   [
+        "title" => "Спатифиллум",
+        
+        "url-main" => "/Spathiphyllum",
+        "url-image" => "/Spathiphyllum/image",
+        "url-info" => "/Spathiphyllum/info",
+    ],
+    [
+        "title" => "Антуриум",
+        "url-main" => "/Anthurium",
+        "url-image" => "/Anthurium/image",
+        "url-info" => "/Anthurium/info",
+    ]
+    ,
+    [
+        "title" => "Шеффлера",
+        "url" => "/Scheffler",
+        "url-image" => "/Scheffler/image",
+        "url-info" => "/Scheffler/info",
+    ]
+];
+
 
 if ($url == "/") {
     $title = "Главная";
@@ -33,7 +56,7 @@ if ($url == "/") {
         $context['type'] = "картинка";
     } elseif (preg_match("#/Spathiphyllum/info#", $url)) {
         $template = "info.twig";
-        $context['text'] = "tttttt1111111"; // передаем в контекст ключ image
+        $context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Spathiphyllum-info.php"); // передаем в контекст ключ image
         $title = "Главная";
         $context['type'] = "текст";
     }
@@ -47,7 +70,7 @@ if ($url == "/") {
         $context['type'] = "картинка";
     } elseif (preg_match("#/Anthurium/info#", $url)) {
         $template = "info.twig";
-        $context['text'] = "tttttt"; // передаем в контекст ключ image
+        $context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Anthurium-info.php"); // передаем в контекст ключ image
         $context['type'] = "текст";
     }
 
@@ -63,7 +86,7 @@ elseif (preg_match("#/Scheffler#", $url)) {
         $context['type'] = "картинка";
     } elseif (preg_match("#/Scheffler/info#", $url)) {
         $template = "info.twig";
-        $context['text'] = "tttttt222222222222222222"; // передаем в контекст ключ image
+        $context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Scheffler-info.php"); // передаем в контекст ключ image
         $context['type'] = "текст";
     }
 }
@@ -71,7 +94,7 @@ elseif (preg_match("#/Scheffler#", $url)) {
 // название не пихаю в контекст в роутере,
 // потому что это отдельная сущность, общая для всех
 $context['title'] = $title;
-
+$context['menu'] = $menu;
 // ну и рендерю
 echo $twig->render($template, $context);
 ?>
