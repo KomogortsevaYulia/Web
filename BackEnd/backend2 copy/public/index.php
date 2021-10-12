@@ -2,6 +2,7 @@
 
 // подключаем пакеты которые установили через composer
 require_once '../vendor/autoload.php';
+require_once "../controllers/MainController.php"; // добавим в самом верху ссылку на наш контроллер
 
 // создаем загрузчик шаблонов, и указываем папку с шаблонами
 // \Twig\Loader\FilesystemLoader -- это типа как в C# писать Twig.Loader.FilesystemLoader, 
@@ -21,7 +22,7 @@ $context = []; // наш словарик, данные для шаблона п
 $menu = [ // добавил список словариков
    [
         "title" => "Спатифиллум",
-        
+
         "url-main" => "/Spathiphyllum",
         "url-image" => "/Spathiphyllum/image",
         "url-info" => "/Spathiphyllum/info",
@@ -40,11 +41,12 @@ $menu = [ // добавил список словариков
         "url-info" => "/Scheffler/info",
     ]
 ];
+$controller = null; // создаем переменную под контроллер
 
 
 if ($url == "/") {
-    $title = "Главная";
-    $template = "main.twig";
+    $controller = new MainController($twig);
+    
 } elseif (preg_match("#/Spathiphyllum#", $url)) {
     $title = "Спатифиллум";
     $template = "_object.twig";
@@ -93,8 +95,11 @@ elseif (preg_match("#/Scheffler#", $url)) {
 
 // название не пихаю в контекст в роутере,
 // потому что это отдельная сущность, общая для всех
-$context['title'] = $title;
+//$context['title'] = $title;
 $context['menu'] = $menu;
 // ну и рендерю
-echo $twig->render($template, $context);
+//echo $twig->render($template, $context);
+if ($controller) {
+    $controller->get();
+}
 ?>
