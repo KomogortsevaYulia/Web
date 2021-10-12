@@ -40,7 +40,7 @@ if ($url == "/") {
     $context['name'] = "Anthurium"; // передаем в контекст ключ image
     if (preg_match("#/Anthurium/image#", $url)) {
         $context['image'] = "/images/img-Anthurium.jpg"; // передаем в контекст ключ image
-        $template = "image.twig";
+        $template = "_object.twig";
     } elseif (preg_match("#/Anthurium/info#", $url)) {
         $template = "_object.twig";
         $context['text'] = "tttttt"; // передаем в контекст ключ image
