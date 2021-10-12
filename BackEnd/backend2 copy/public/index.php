@@ -15,7 +15,7 @@ $url = $_SERVER["REQUEST_URI"];
 
 $title = "";
 $template = "";
-// $image = ""; убираем
+
 
 $context = []; // наш словарик, данные для шаблона принято называть контекстом
 
@@ -30,9 +30,12 @@ if ($url == "/") {
     if (preg_match("#/Spathiphyllum/image#", $url)) {
         $context['image'] = "/images/img-Spatif.jpg"; // передаем в контекст ключ image
         $template = "image.twig";
+        $context['type'] = "картинка";
     } elseif (preg_match("#/Spathiphyllum/info#", $url)) {
-        $template = "_object.twig";
+        $template = "info.twig";
         $context['text'] = "tttttt1111111"; // передаем в контекст ключ image
+        $title = "Главная";
+        $context['type'] = "текст";
     }
 } elseif (preg_match("#/Anthurium#", $url)) {
     $title = "Антуриум";
@@ -40,10 +43,12 @@ if ($url == "/") {
     $context['name'] = "Anthurium"; // передаем в контекст ключ image
     if (preg_match("#/Anthurium/image#", $url)) {
         $context['image'] = "/images/img-Anthurium.jpg"; // передаем в контекст ключ image
-        $template = "_object.twig";
+        $template = "image.twig";
+        $context['type'] = "картинка";
     } elseif (preg_match("#/Anthurium/info#", $url)) {
-        $template = "_object.twig";
+        $template = "info.twig";
         $context['text'] = "tttttt"; // передаем в контекст ключ image
+        $context['type'] = "текст";
     }
 
 }
@@ -55,9 +60,11 @@ elseif (preg_match("#/Scheffler#", $url)) {
     if (preg_match("#/Scheffler/image#", $url)) {
         $context['image'] = "/images/img-Scheffler.jpg"; // передаем в контекст ключ image
         $template = "image.twig";
+        $context['type'] = "картинка";
     } elseif (preg_match("#/Scheffler/info#", $url)) {
-        $template = "_object.twig";
+        $template = "info.twig";
         $context['text'] = "tttttt222222222222222222"; // передаем в контекст ключ image
+        $context['type'] = "текст";
     }
 }
 
