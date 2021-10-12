@@ -3,7 +3,8 @@
 // подключаем пакеты которые установили через composer
 require_once '../vendor/autoload.php';
 require_once "../controllers/MainController.php"; // добавим в самом верху ссылку на наш контроллер
-
+require_once "../controllers/SpathiphyllumController.php"; // добавим в самом верху ссылку на наш контроллер
+require_once "../controllers/SchefflerController.php"; // добавим в самом верху ссылку на наш контроллер
 // создаем загрузчик шаблонов, и указываем папку с шаблонами
 // \Twig\Loader\FilesystemLoader -- это типа как в C# писать Twig.Loader.FilesystemLoader, 
 // только слеш вместо точек
@@ -19,28 +20,7 @@ $template = "";
 
 
 $context = []; // наш словарик, данные для шаблона принято называть контекстом
-$menu = [ // добавил список словариков
-   [
-        "title" => "Спатифиллум",
 
-        "url-main" => "/Spathiphyllum",
-        "url-image" => "/Spathiphyllum/image",
-        "url-info" => "/Spathiphyllum/info",
-    ],
-    [
-        "title" => "Антуриум",
-        "url-main" => "/Anthurium",
-        "url-image" => "/Anthurium/image",
-        "url-info" => "/Anthurium/info",
-    ]
-    ,
-    [
-        "title" => "Шеффлера",
-        "url" => "/Scheffler",
-        "url-image" => "/Scheffler/image",
-        "url-info" => "/Scheffler/info",
-    ]
-];
 $controller = null; // создаем переменную под контроллер
 
 
@@ -48,10 +28,12 @@ if ($url == "/") {
     $controller = new MainController($twig);
     
 } elseif (preg_match("#/Spathiphyllum#", $url)) {
-    $title = "Спатифиллум";
-    $template = "_object.twig";
+    #$title = "Спатифиллум";
+    #$template = "_object.twig";
  
-    $context['name'] = "Spathiphyllum"; // передаем в контекст ключ image
+    #$context['name'] = "Spathiphyllum"; 
+    $controller = new SpathiphyllumController($twig); // тут просто контроллер создаем
+    
     if (preg_match("#/Spathiphyllum/image#", $url)) {
         $context['image'] = "/images/img-Spatif.jpg"; // передаем в контекст ключ image
         $template = "image.twig";
@@ -78,10 +60,12 @@ if ($url == "/") {
 
 }
 elseif (preg_match("#/Scheffler#", $url)) {
-    $title = "Шеффлера";
-    $template = "_object.twig";
+    #$title = "Шеффлера";
+    #$template = "_object.twig";
     
-    $context['name'] = "Scheffler"; // передаем в контекст ключ image
+    #$context['name'] = "Scheffler"; // передаем в контекст ключ image
+    $controller = new SchefflerController($twig); // тут просто контроллер создаем
+    
     if (preg_match("#/Scheffler/image#", $url)) {
         $context['image'] = "/images/img-Scheffler.jpg"; // передаем в контекст ключ image
         $template = "image.twig";
@@ -96,10 +80,9 @@ elseif (preg_match("#/Scheffler#", $url)) {
 // название не пихаю в контекст в роутере,
 // потому что это отдельная сущность, общая для всех
 //$context['title'] = $title;
-$context['menu'] = $menu;
+#$context['menu'] = $menu;
 // ну и рендерю
 //echo $twig->render($template, $context);
 if ($controller) {
     $controller->get();
 }
-?>

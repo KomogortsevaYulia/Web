@@ -4,7 +4,7 @@ require_once "BaseController.php"; // обязательно импортим Ba
 class TwigBaseController extends BaseController {
     public $title = ""; // название страницы
     public $template = ""; // шаблон страницы
-    protected \Twig\Environment $twig = null; // ссылка на экземпляр twig, для рендернига
+    protected \Twig\Environment $twig ; // ссылка на экземпляр twig, для рендернига
     
     // теперь пишем конструктор, 
     // передаем в него один параметр
@@ -22,7 +22,29 @@ class TwigBaseController extends BaseController {
     {
         $context = parent::getContext(); // вызываем родительский метод
         $context['title'] = $this->title; // добавляем title в контекст
-
+        $menu = [ // добавил список словариков
+            [
+                 "title" => "Спатифиллум",
+         
+                 "url-main" => "/Spathiphyllum",
+                 "url-image" => "/Spathiphyllum/image",
+                 "url-info" => "/Spathiphyllum/info",
+             ],
+             [
+                 "title" => "Антуриум",
+                 "url-main" => "/Anthurium",
+                 "url-image" => "/Anthurium/image",
+                 "url-info" => "/Anthurium/info",
+             ]
+             ,
+             [
+                 "title" => "Шеффлера",
+                 "url" => "/Scheffler",
+                 "url-image" => "/Scheffler/image",
+                 "url-info" => "/Scheffler/info",
+             ]
+         ];
+        $context['menu'] = $menu; // добавляем title в контекст
         return $context;
     }
     
@@ -31,4 +53,4 @@ class TwigBaseController extends BaseController {
     public function get() {
         echo $this->twig->render($this->template, $this->getContext());
     }
-}?>
+}
