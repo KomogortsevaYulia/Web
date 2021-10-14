@@ -5,6 +5,8 @@ require_once '../vendor/autoload.php';
 require_once "../controllers/MainController.php"; // добавим в самом верху ссылку на наш контроллер
 require_once "../controllers/SpathiphyllumController.php"; // добавим в самом верху ссылку на наш контроллер
 require_once "../controllers/SchefflerController.php"; // добавим в самом верху ссылку на наш контроллер
+require_once "../controllers/AnthuriumController.php"; // добавим в самом верху ссылку на наш контроллер
+require_once "../controllers/ShefflerInfoController.php"; // добавил
 // создаем загрузчик шаблонов, и указываем папку с шаблонами
 // \Twig\Loader\FilesystemLoader -- это типа как в C# писать Twig.Loader.FilesystemLoader, 
 // только слеш вместо точек
@@ -45,9 +47,11 @@ if ($url == "/") {
         $context['type'] = "текст";
     }
 } elseif (preg_match("#/Anthurium#", $url)) {
-    $title = "Антуриум";
-    $template = "_object.twig";
-    $context['name'] = "Anthurium"; // передаем в контекст ключ image
+    #$title = "Антуриум";
+    #$template = "_object.twig";
+    #$context['name'] = "Anthurium"; // передаем в контекст ключ image
+    $controller = new AnthuriumController($twig); // тут просто контроллер создаем
+    
     if (preg_match("#/Anthurium/image#", $url)) {
         $context['image'] = "/images/img-Anthurium.jpg"; // передаем в контекст ключ image
         $template = "image.twig";
@@ -71,9 +75,11 @@ elseif (preg_match("#/Scheffler#", $url)) {
         $template = "image.twig";
         $context['type'] = "картинка";
     } elseif (preg_match("#/Scheffler/info#", $url)) {
-        $template = "info.twig";
-        $context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Scheffler-info.php"); // передаем в контекст ключ image
-        $context['type'] = "текст";
+        #$template = "info.twig";
+        #$context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Scheffler-info.php"); // передаем в контекст ключ image
+        #$context['type'] = "текст";
+        $controller = new ShefflerInfoController($twig); // тут просто контроллер создаем
+    
     }
 }
 
