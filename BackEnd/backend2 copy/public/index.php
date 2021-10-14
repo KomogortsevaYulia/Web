@@ -11,7 +11,8 @@ require_once "../controllers/SpathiphyllumInfoController.php"; // добавил
 require_once "../controllers/AnthuriumInfoController.php"; // добавил
 require_once "../controllers/Controller404.php"; // добавил
 require_once "../controllers/SpathiphyllumImageController.php"; // добавил
-
+require_once "../controllers/AnthuriumImageController.php"; // добавил
+require_once "../controllers/SchefflerImageController.php"; // добавил
 // создаем загрузчик шаблонов, и указываем папку с шаблонами
 // \Twig\Loader\FilesystemLoader -- это типа как в C# писать Twig.Loader.FilesystemLoader, 
 // только слеш вместо точек
@@ -61,9 +62,10 @@ if ($url == "/") {
     $controller = new AnthuriumController($twig); // тут просто контроллер создаем
     
     if (preg_match("#/Anthurium/image#", $url)) {
-        $context['image'] = "/images/img-Anthurium.jpg"; // передаем в контекст ключ image
-        $template = "image.twig";
-        $context['type'] = "картинка";
+        #$context['image'] = "/images/img-Anthurium.jpg"; // передаем в контекст ключ image
+        #$template = "image.twig";
+        #$context['type'] = "картинка";
+        $controller = new AnthuriumImageController($twig); // тут просто контроллер создаем
     } elseif (preg_match("#/Anthurium/info#", $url)) {
         #$template = "info.twig";
         #$context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Anthurium-info.php"); // передаем в контекст ключ image
@@ -80,9 +82,10 @@ elseif (preg_match("#/Scheffler#", $url)) {
     $controller = new SchefflerController($twig); // тут просто контроллер создаем
     
     if (preg_match("#/Scheffler/image#", $url)) {
-        $context['image'] = "/images/img-Scheffler.jpg"; // передаем в контекст ключ image
-        $template = "image.twig";
-        $context['type'] = "картинка";
+        #$context['image'] = "/images/img-Scheffler.jpg"; // передаем в контекст ключ image
+        #$template = "image.twig";
+        #$context['type'] = "картинка";
+        $controller = new SchefflerImageController($twig); // тут просто контроллер создаем
     } elseif (preg_match("#/Scheffler/info#", $url)) {
         #$template = "info.twig";
         #$context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Scheffler-info.php"); // передаем в контекст ключ image
