@@ -8,6 +8,10 @@ require_once "../controllers/SchefflerController.php"; // добавим в са
 require_once "../controllers/AnthuriumController.php"; // добавим в самом верху ссылку на наш контроллер
 require_once "../controllers/ShefflerInfoController.php"; // добавил
 require_once "../controllers/SpathiphyllumInfoController.php"; // добавил
+require_once "../controllers/AnthuriumInfoController.php"; // добавил
+require_once "../controllers/Controller404.php"; // добавил
+require_once "../controllers/SpathiphyllumImageController.php"; // добавил
+
 // создаем загрузчик шаблонов, и указываем папку с шаблонами
 // \Twig\Loader\FilesystemLoader -- это типа как в C# писать Twig.Loader.FilesystemLoader, 
 // только слеш вместо точек
@@ -24,7 +28,7 @@ $template = "";
 
 $context = []; // наш словарик, данные для шаблона принято называть контекстом
 
-$controller = null; // создаем переменную под контроллер
+$controller = new Controller404($twig); // теперь 404 будут нашем контроллером по умолчанию
 
 
 if ($url == "/") {
@@ -38,9 +42,10 @@ if ($url == "/") {
     $controller = new SpathiphyllumController($twig); // тут просто контроллер создаем
     
     if (preg_match("#/Spathiphyllum/image#", $url)) {
-        $context['image'] = "/images/img-Spatif.jpg"; // передаем в контекст ключ image
-        $template = "image.twig";
-        $context['type'] = "картинка";
+        #$context['image'] = "/images/img-Spatif.jpg"; // передаем в контекст ключ image
+        #$template = "image.twig";
+        #$context['type'] = "картинка";
+        $controller = new SpathiphyllumImageController($twig); // тут просто контроллер создаем
     } elseif (preg_match("#/Spathiphyllum/info#", $url)) {
         #$template = "info.twig";
         #$context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Spathiphyllum-info.php"); // передаем в контекст ключ image
@@ -60,9 +65,10 @@ if ($url == "/") {
         $template = "image.twig";
         $context['type'] = "картинка";
     } elseif (preg_match("#/Anthurium/info#", $url)) {
-        $template = "info.twig";
-        $context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Anthurium-info.php"); // передаем в контекст ключ image
-        $context['type'] = "текст";
+        #$template = "info.twig";
+        #$context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Anthurium-info.php"); // передаем в контекст ключ image
+        #$context['type'] = "текст";
+        $controller = new AnthuriumInfoController($twig); // тут просто контроллер создаем
     }
 
 }
