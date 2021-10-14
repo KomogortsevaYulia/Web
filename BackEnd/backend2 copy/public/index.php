@@ -7,6 +7,7 @@ require_once "../controllers/SpathiphyllumController.php"; // добавим в 
 require_once "../controllers/SchefflerController.php"; // добавим в самом верху ссылку на наш контроллер
 require_once "../controllers/AnthuriumController.php"; // добавим в самом верху ссылку на наш контроллер
 require_once "../controllers/ShefflerInfoController.php"; // добавил
+require_once "../controllers/SpathiphyllumInfoController.php"; // добавил
 // создаем загрузчик шаблонов, и указываем папку с шаблонами
 // \Twig\Loader\FilesystemLoader -- это типа как в C# писать Twig.Loader.FilesystemLoader, 
 // только слеш вместо точек
@@ -41,10 +42,12 @@ if ($url == "/") {
         $template = "image.twig";
         $context['type'] = "картинка";
     } elseif (preg_match("#/Spathiphyllum/info#", $url)) {
-        $template = "info.twig";
-        $context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Spathiphyllum-info.php"); // передаем в контекст ключ image
-        $title = "Главная";
-        $context['type'] = "текст";
+        #$template = "info.twig";
+        #$context['text'] = file_get_contents("C:/Yulia/Study/3_course/Web/BackEnd/backend1/views/Spathiphyllum-info.php"); // передаем в контекст ключ image
+        #$title = "Главная";
+        #$context['type'] = "текст";
+        $controller = new SpathiphyllumInfoController($twig); // тут просто контроллер создаем
+    
     }
 } elseif (preg_match("#/Anthurium#", $url)) {
     #$title = "Антуриум";
