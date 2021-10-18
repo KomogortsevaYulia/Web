@@ -1,6 +1,3 @@
-{% macro btn(name, value, type, text="primary") %}
-
-
-<p style="background-color:Red;">  {{value}}  </p><!--а тут при выводе он выводит дословно из за этого он не может найти сайт с такой ссылкой((-->
-    <a href="{{value}} {{ type == '{{name}}' ? 'active' }}" class="btn btn-{{text}}">{{name}}</a>
+{% macro btn(t, value) %}
+    <a href="{{value}}" class="btn btn-nav-link">{{t}}</a>
 {% endmacro %}

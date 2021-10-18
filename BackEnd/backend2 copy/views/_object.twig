@@ -4,18 +4,17 @@
 {% block content %}
 
 <h1>{{title}}</h1>
-<p style="background-color:Green;">{{name}}</p><!--вот я вывожу что бы проверить и выводит норм-->
 <ul class="nav nav-pills">
   <li class="nav-item">
    
     {% import "forms.html" as forms %}
-    {{ forms.btn('Картинка', '/{{name}}/image', true, 'nav-link') }}<!--тут я передаю в макрос-->
+    {{ forms.btn('Картинка', '/'~ name~'/image') }}
   
     </li>
   <li class="nav-item ">
 
     {% import "forms.html" as forms %}
-    {{forms.btn('Описание', '/{{name}}/info', true, 'nav-link') }}
+    {{forms.btn('Описание', '/'~ name~ '/info') }}
     
   </li>
 </ul>
