@@ -8,13 +8,12 @@
   <li class="nav-item">
    
     {% import "forms.html" as forms %}
-    {{ forms.btn('Картинка', '/'~ name~'/image') }}
-  
+    {{ forms.btn('Картинка', '/'~ name~'/image',true,'nav-link') }}
     </li>
   <li class="nav-item ">
 
     {% import "forms.html" as forms %}
-    {{forms.btn('Описание', '/'~ name~ '/info') }}
+    {{forms.btn('Описание', '/'~ name~ '/info',true,'nav-link' ) }}
     
   </li>
 </ul>

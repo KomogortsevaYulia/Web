@@ -1,3 +1,12 @@
-{% macro btn(t, value) %}
-    <a href="{{value}}" class="btn btn-nav-link">{{t}}</a>
+{% macro btn(textInButton, url,usetypeBtn, typeBtn) %} 
+
+    {% if usetypeBtn == true %}
+        <a  class="{{typeBtn}}" href="{{url}}">{{textInButton}}</a>
+    {% endif %}
+    
+    {% if usetypeBtn == false %}
+        <p>{{usetypeBtn}}</p>   
+        <a href="{{url}}" class="btn btn-link">{{textInButton}}</a>
+    {% endif %}
+    
 {% endmacro %}
