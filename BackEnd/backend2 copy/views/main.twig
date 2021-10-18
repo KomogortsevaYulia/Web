@@ -2,11 +2,11 @@
 
 {% block content %}
 <ul class="list-group"></ul>
-{% for item in menu %}
+{% for i in menu %}
     <li class="list-group-item">
-            <a type="button" class="btn btn-primary " href="{{item['url-main']}}">{{item.title}}</a>
-            <a type="button" class="btn btn-light " href="{{item['url-image']}}">Картинка</a>
-            <a type="button" class="btn btn-light" href="{{item['url-info']}}">Описание</a>
+            
+        
+            {% set content = include('template.html') with {''~item~'': ''~i~''} %}
     </li>
 {% endfor %}
 </ul>

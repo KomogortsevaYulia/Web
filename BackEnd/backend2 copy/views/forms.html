@@ -1,4 +1,4 @@
-{% macro btn(textInButton, url,usetypeBtn, typeBtn) %} 
+{% macro btn(textInButton, url,usetypeBtn, typeBtn="btn btn-primary") %} 
 
     {% if usetypeBtn == true %}
         <a  class="{{typeBtn}}" href="{{url}}">{{textInButton}}</a>
