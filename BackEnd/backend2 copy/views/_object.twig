@@ -6,8 +6,10 @@
 <h1>{{title}}</h1>
 <ul class="nav nav-pills">
   <li class="nav-item">
-   {% import "forms.html" as btn %} {{ btn("Картинка", "/{{name}}/image", true, "nav-link") }}
-    <!--<a class="nav-link  {{ type == 'картинка' ? 'active' }}" href="/{{name}}/image">Картинка</a>
+   
+   {% from 'forms.html' import input as btn %}
+   {{ btn("Картинка", "/{{name}}/image", true, "nav-link") }}
+   <!--<a class="nav-link  {{ type == 'картинка' ? 'active' }}" href="/{{name}}/image">Картинка</a>
   -->
     </li>
   <li class="nav-item ">
