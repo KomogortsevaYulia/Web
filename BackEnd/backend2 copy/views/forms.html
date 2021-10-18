@@ -1,3 +1,6 @@
-{% macro btn(name, value, type, text) %}
-    <a href="value" class="btn btn-link">name</a>
+{% macro btn(name, value, type, text="primary") %}
+
+
+<p style="background-color:Red;">  {{value}}  </p>
+    <a href="{{value}} {{ type == '{{name}}' ? 'active' }}" class="btn btn-{{text}}">{{name}}</a>
 {% endmacro %}

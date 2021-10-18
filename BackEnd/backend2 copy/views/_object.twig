@@ -4,16 +4,19 @@
 {% block content %}
 
 <h1>{{title}}</h1>
+<p style="background-color:Green;">{{name}}</p> 
 <ul class="nav nav-pills">
   <li class="nav-item">
    
-   {% from 'forms.html' import input as btn %}
-   {{ btn("Картинка", "/{{name}}/image", true, "nav-link") }}
-   <!--<a class="nav-link  {{ type == 'картинка' ? 'active' }}" href="/{{name}}/image">Картинка</a>
-  -->
+    {% import "forms.html" as forms %}
+    {{ forms.btn('Картинка', '/{{name}}/image', true, 'nav-link') }}
+  
     </li>
   <li class="nav-item ">
-    <a class="nav-link {{ type == 'текст' ? 'active' }}" href="/{{name}}/info">Описание</a>
+
+    {% import "forms.html" as forms %}
+    {{forms.btn('Описание', '/{{name}}/info', true, 'nav-link') }}
+    
   </li>
 </ul>
 <ul class="list-group">
