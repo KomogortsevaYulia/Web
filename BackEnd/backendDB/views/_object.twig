@@ -1,0 +1,28 @@
+
+{% extends  "__layout.twig" %}
+
+{% block content %}
+
+<h1>{{title}}</h1>
+<ul class="nav nav-pills">
+  <li class="nav-item">
+   
+    {% import "forms.html" as forms %}
+    {{ forms.btn('Картинка', '/'~ name~'/image', type == 'картинка','nav-link active') }}
+    </li>
+  <li class="nav-item ">
+
+    {% import "forms.html" as forms %}
+    {{forms.btn('Описание', '/'~ name~ '/info',type == 'текст','nav-link  active' ) }}
+    
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    
+{% block objectContent %}
+<p>Выберите раздел выше</p>
+{% endblock %}
+</li>
+</ul>
+{% endblock %}

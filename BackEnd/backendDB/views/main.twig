@@ -1,0 +1,11 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+<ul class="list-group"></ul>
+{% for i in menu %}
+    <li class="list-group-item">
+            {% include('template.html') %}
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
