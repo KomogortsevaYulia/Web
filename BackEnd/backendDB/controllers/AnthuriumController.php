@@ -1,5 +1,5 @@
 <?php
-require_once "TwigBaseController.php"; // обязательно импортим BaseController
+//require_once "TwigBaseController.php"; // обязательно импортим BaseController
 
 class AnthuriumController extends TwigBaseController {
     public $title = "Антуриум"; // название страницы
