@@ -16,29 +16,7 @@ class TwigBaseController extends BaseController {
     {
         $context = parent::getContext(); // вызываем родительский метод
         $context['title'] = $this->title; // добавляем title в контекст
-        $menu = [ // добавил список словариков
-            [
-                 "title" => "Спатифиллум",
-         
-                 "url-main" => "/Spathiphyllum",
-                 "url-image" => "/Spathiphyllum/image",
-                 "url-info" => "/Spathiphyllum/info",
-             ],
-             [
-                 "title" => "Антуриум",
-                 "url-main" => "/Anthurium",
-                 "url-image" => "/Anthurium/image",
-                 "url-info" => "/Anthurium/info",
-             ]
-             ,
-             [
-                 "title" => "Шеффлера",
-                 "url-main" => "/Scheffler",
-                 "url-image" => "/Scheffler/image",
-                 "url-info" => "/Scheffler/info",
-             ]
-         ];
-        $context['menu'] = $menu; // добавляем title в контекст
+        
         return $context;
     }
     

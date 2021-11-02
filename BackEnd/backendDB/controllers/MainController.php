@@ -1,7 +1,7 @@
 <?php
-//require_once "TwigBaseController.php"; // импортим TwigBaseController
+require_once "BasePlantsTwigController.php"; 
 
-class MainController extends TwigBaseController {
+class MainController extends BasePlantsTwigController {
     public $template = "main.twig";
     public $title = "Главная";
     // добавим метод getContext()
@@ -9,9 +9,14 @@ class MainController extends TwigBaseController {
     {
         $context = parent::getContext();
         
-        // подготавливаем запрос SELECT * FROM space_objects
-        // вообще звездочку не рекомендуется использовать, но на первый раз пойдет
-        $query = $this->pdo->query("SELECT * FROM flowers");
+        if(isset($_GET['type'])){
+            $query = $this->pdo->prepare("SELECT * FROM flowers WHERE type=:type");
+            $query->bindValue("type",$_GET['type']);
+            $query->execute();
+        }else{
+            $query = $this->pdo->query("SELECT * FROM flowers");
+        
+        }
         
         // стягиваем данные через fetchAll() и сохраняем результат в контекст
         $context['flowers'] = $query->fetchAll();

@@ -1,5 +1,4 @@
 <?php
-require_once "../controllers/SchefflerController.php";
 
 class ObjectImageController extends ObjectController {
     public $template = "image.twig";
