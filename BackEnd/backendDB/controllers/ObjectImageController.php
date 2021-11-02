@@ -18,7 +18,7 @@ class ObjectImageController extends ObjectController {
         
         // передаем описание из БД в контекст
         $context['image'] = $data['image'];
-        $context['type'] = "картинк";
+        $context['type'] = "картинка";
         return $context;
     }
 }
