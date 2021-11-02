@@ -3,18 +3,17 @@
 
 {% block content %}
 
-<h1>{{title}}</h1>
 <p>{{description}}</p>
 <ul class="nav nav-pills">
   <li class="nav-item">
    
     {% import "forms.html" as forms %}
-    {{ forms.btn('Картинка', '/'~ name~'/image', type == 'картинка','nav-link active') }}
+    {{ forms.btn('Картинка', '/flower/'~ my_id ~'/image', type == 'картинка','nav-link active') }}
     </li>
   <li class="nav-item ">
 
     {% import "forms.html" as forms %}
-    {{forms.btn('Описание', '/'~ name~ '/info',type == 'текст','nav-link  active' ) }}
+    {{forms.btn('Описание', '/flower/'~ my_id ~'/info',type == 'текст','nav-link  active' ) }}
     
   </li>
 </ul>
