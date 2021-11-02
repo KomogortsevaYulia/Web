@@ -25,7 +25,9 @@ $twig->addExtension(new \Twig\Extension\DebugExtension()); // и активир�
 $pdo = new PDO("mysql:host=localhost;dbname=plants;charset=utf8", "root", "");
 $router = new Router($twig, $pdo);
 $router->add("/", MainController::class);
-
+$router->add("/Anthurium", AnthuriumController::class);
+$router->add("/Scheffler", SchefflerController::class);
+$router->add("/Spathiphyllum", SpathiphyllumController::class);
 // помните нашу регулярку, которую выше, делали, собственно вот сюда ее и загнали
 $router->add("/flower/(?P<id>\d+)", ObjectController::class); 
 $router->get_or_default(Controller404::class);
