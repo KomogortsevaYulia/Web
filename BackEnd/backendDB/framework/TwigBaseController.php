@@ -11,6 +11,10 @@ class TwigBaseController extends BaseController {
         $this->twig = $twig;
     }
 
+    public function getTemplate() {
+        return $this->template;
+    }
+
     // переопределяем функцию контекста
     public function getContext() : array
     {
@@ -23,6 +27,6 @@ class TwigBaseController extends BaseController {
     // функция гет, рендерит результат используя $template в качестве шаблона
     // и вызывает функцию getContext для формирования словаря контекста
     public function get() {
-        echo $this->twig->render($this->template, $this->getContext());
+        echo $this->twig->render($this->getTemplate(), $this->getContext());
     }
 }

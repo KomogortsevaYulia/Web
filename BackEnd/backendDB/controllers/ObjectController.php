@@ -3,6 +3,18 @@ require_once "BasePlantsTwigController.php";
 class ObjectController extends BasePlantsTwigController {
     public $template = "_object.twig"; // указываем шаблон
 
+    public function getTemplate() {
+        if(isset($_GET['show'])){
+            if($_GET['show']=='image'){
+                return "image.twig";
+                
+            } elseif($_GET['show']=='info'){
+                return "info.twig";
+            }
+        }
+        return parent::getTemplate();
+    }
+
     public function getContext(): array
     {
         $context = parent::getContext();
@@ -14,27 +26,21 @@ class ObjectController extends BasePlantsTwigController {
         // тянем данные
         $data = $query->fetch();
 
+        $context['my_id'] = $data['id'];
+        $context['description'] = $data['description'];
+
+
         if(isset($_GET['show'])){
             if($_GET['show']=='image'){
-                $template = "image.twig";
                 // передаем описание из БД в контекст
                 $context['image'] = $data['image'];
                 $context['type'] = "картинка";
-                print_r($context['image']);
             }elseif($_GET['show']=='info'){
-                $template = "info.twig";
                 // передаем описание из БД в контекст
                 $context['text'] = $data['info'];
                 $context['type'] = "текст";
-                print_r($context['text']);
             }
-            
-        }else{
-            // передаем описание из БД в контекст
-            $context['description'] = $data['description'];
-            $context['my_id'] = $data['id'];
         }
-        
         return $context;
     }
 }

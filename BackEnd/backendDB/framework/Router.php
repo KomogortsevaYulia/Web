@@ -41,7 +41,7 @@ class Router {
         
         $path=parse_url($url,PHP_URL_PATH);
         
-        print_r($_GET); // выведем содержимое $_GET
+        
         echo "</pre>";
 
         $matches=[];
