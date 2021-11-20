@@ -6,12 +6,10 @@
 <ul class="nav nav-pills">
   <li class="nav-item">
    
-    {% import "forms.html" as forms %}
+    {% import "form.twig" as forms %}
     {{ forms.btn('Картинка', '/flower/'~ my_id ~'?show=image', type == 'картинка','nav-link active') }}
     </li>
   <li class="nav-item ">
-
-    {% import "forms.html" as forms %}
     {{forms.btn('Описание', '/flower/'~ my_id ~'?show=info',type == 'текст','nav-link  active' ) }}
     
   </li>

@@ -7,3 +7,9 @@
             <a href="{{url}}" class="btn btn-link">{{textInButton}}</a>
     {% endif %}
 {% endmacro %}
+{% macro option(value, selected) %} 
+        <option value="{{value}}" {{ value == selected ?'selected="selected"' : '' }}>{{value}}</option>
+{% endmacro %}
+
+
+

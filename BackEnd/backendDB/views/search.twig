@@ -1,17 +1,32 @@
-
+{% import "forms.twig" as forms %}
 {% extends "__layout.twig" %}
 
 {% block content %}
-     Поиск
+    
 
      <form action="">
-        <select  name="type">
-            <option value="оранжерея">Оранжерея</option>
-            <option value="открытый грунт">Открытый грунт</option>
-        </select>
-        <label>Название <input type="text" name="title"></label>
-    
-        <button type="submit">Найти</button>
+        <div class="row">
+            <div class="col-auto"> 
+                <label>Поиск</label>
+                <select class="form-select" name="type">
+                    {{ forms.option('Все', get.type) }}
+                    {{ forms.option('Оранжерея', get.type) }}
+                    {{ forms.option('Открытый грунт', get.type) }}
+                </select>
+            </div>
+            <div class="col-auto">
+                <label>Название</label>
+                <input type="text" name="title" class="form-control" placeholder="Название">
+            </div>
+            <div class="col-auto">
+                <label>Описание</label>
+                <input type="text" name="info" class="form-control" placeholder="Описание">
+            </div>
+            <div class="col-auto">
+                <br/>
+                <button type="submit" class="btn btn-primary">Найти</button>
+            </div>
+        </div>
     </form>
     <div class="row d-flex">
     {% for object in flowers %}
