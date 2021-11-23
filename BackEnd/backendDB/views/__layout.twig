@@ -20,16 +20,22 @@
                 <a class="nav-link active" aria-current="page" href="/">Главная</a>
             </li>
             
-            {% for type in types %}
+            {# {% for type in types %}
             <li class="nav-item">
                 <a class="nav-link" href="/?type={{ type.type }}">{{ type.type|title }}</a>
             </li>
-            {% endfor %}
+            {% endfor %} #}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/types">Тип</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="/search">Поиск</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/flower/create">Добавление</a>
+                <a class="nav-link" aria-current="page" href="/flower/create">Добавление растения</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/types/create">Добавление типа</a>
             </li>
         </ul>
         </div>

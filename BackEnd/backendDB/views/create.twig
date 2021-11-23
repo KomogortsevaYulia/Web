@@ -5,7 +5,7 @@
     <hr>
     {% if message %}
         <div class="alert alert-info">{{ message }}
-            <a href="/flowers/{{id}}">открыть новый обьект</a>
+            <a href="/flower/{{id}}">открыть новый обьект</a>
 
         </div>
     {% endif %}
@@ -21,8 +21,9 @@
         <div class="col-4">
             <label class="form-label">Тип</label>
             <select class="form-control" name="type">
-                <option value="оранжерея">Оранжерея</option>
-                <option value="открытый грунт">Открытый грунт</option>
+                {% for type in types %}
+                    <option value="{{type.id}}">{{type.name|title}}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="mb-3">
@@ -36,5 +37,4 @@
             <button type="submit" class="btn btn-primary">Добавить</button>
         </div>
     </form>
-
 {% endblock %}

@@ -31,7 +31,9 @@ EOL;
         $query->execute();
         $context['get']=$_GET;
         $context['flowers']=$query->fetchAll();
-        
+        $query = $this->pdo->query("SELECT * FROM types");
+        $context['types'] = $query->fetchAll();
+
         return $context;
     }
 }

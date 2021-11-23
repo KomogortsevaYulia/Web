@@ -9,9 +9,10 @@
             <div class="col-auto"> 
                 <label>Поиск</label>
                 <select class="form-select" name="type">
-                    {{ forms.option('Все', get.type) }}
-                    {{ forms.option('Оранжерея', get.type) }}
-                    {{ forms.option('Открытый грунт', get.type) }}
+                    {{ forms.option('Все', 'Все', get.type) }}
+                    {% for type in types %}
+                        {{ forms.option( type.id, type.name|title, get.type) }}
+                    {% endfor %}
                 </select>
             </div>
             <div class="col-auto">
