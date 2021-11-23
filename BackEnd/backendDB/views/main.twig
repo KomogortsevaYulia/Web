@@ -5,9 +5,16 @@
 <div class="row d-flex">
     {% for object in flowers %}
         <div class="col mb-4 align-items-stretch">
-            <div class="border p-2 d-flex flex-column justify-content-between">
+            <div class="border p-2 d-flex flex-column justify-content-between position-relative">
+                <div class="position-absolute" style="right:4px;top:4px">
+                    <form method="post" action="/flower/{{object.id}}/delete">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </form>
+                </div>
                 <div class="img-thumbnail mb-2" style="width:100%;height:300px;overflow:hidden;">
-                    <img src="{{object.image}}" style="width:100%;height:100%;object-fit:cover;" alt="">
+                <img src="{{object.image}}" style="width:100%;height:100%;object-fit:cover;" alt="">
                 </div>
                 <div class="d-flex flex-column">
                     <a class="btn btn-primary mb-1" href="/flower/{{object.id}}">{{object.title}}</a>

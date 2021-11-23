@@ -10,6 +10,7 @@ require_once "../controllers/SearchController.php"; // добавил
 require_once "../controllers/ObjectCreateController.php"; // добавил 
 require_once "../controllers/TypesCreateController.php"; // добавил 
 require_once "../controllers/TypesController.php"; // добавил 
+require_once "../controllers/ObjectDeleteController.php"; // добавил
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, ["debug" => true ]);
@@ -26,5 +27,6 @@ $router->add("/search", SearchController::class);
 $router->add("/flower/create", ObjectCreateController::class);
 $router->add("/types/create", TypesCreateController::class);
 $router->add("/types", TypesController::class);
+$router->add("/flower/(?P<id>\d+)/delete", ObjectDeleteController::class);
 $router->get_or_default(Controller404::class);
 
