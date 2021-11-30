@@ -1,0 +1,28 @@
+
+GET http://localhost:9007/flower-api
+###
+GET http://localhost:9007/flower-api/3
+###
+POST http://localhost:9007/flower-api/3/edit
+Content-Type: application/json
+
+{
+    "title":"TEST",
+    "description": "ij gnimgimqrgicergo,wigcm ersiocgm uuo",
+    "type":"3",
+    "info": "infoo",
+    "image_url":"dfghj"
+}
+###
+POST http://localhost:9007/flower-api/create
+Content-Type: application/json
+
+{
+    "title":"TEST",
+    "description": "ij gnimgimqrgicergo,wigcm ersiocgm uuo",
+    "type":"3",
+    "info": "infoo",
+    "image_url":"dfghj"
+}
+###
+DELETE http://localhost:9007/flower-api/13
