@@ -19,12 +19,16 @@ class LogInController extends TwigBaseController {
          $data = $query->fetch();
 
          // сверяем с корректными
-         if ($data['id']=='') {
-                $_SESSION['is_logged']=false;
-             exit; // прерываем выполнение скрипта
-         }else{
+         if ($data) {
             $_SESSION['is_logged']=true;
-         }
+            $context['is_logged'] = true;
+            header('Location: /');
+         }else{
+            $_SESSION['is_logged']=false;
+            $context['message'] = 'Неверные данные';
+            $context['is_logged'] = false;
+            $this->get($context);
+        }
     }
 
 }

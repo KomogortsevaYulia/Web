@@ -6,6 +6,7 @@ require_once '../framework/autoload.php';
 require_once '../middlewares/LoginRequiredMiddeware.php';
 require_once '../middlewares/HistoryMiddeware.php';
 require_once '../controllers/LogInController.php';
+require_once '../controllers/LogOutController.php';
 // require_once '../framework/BaseRestController.php';
 require_once "../controllers/MainController.php"; // добавим в самом верху ссылку на наш контроллер
 require_once "../controllers/Controller404.php"; // добавил
@@ -30,12 +31,12 @@ $router->add("/", MainController::class);
 $router->add("/flower/(?P<id>\d+)", ObjectController::class)->middleware(new HistoryMiddeware());
 $router->add("/search", SearchController::class)->middleware(new HistoryMiddeware());
 $router->add("/flower/create", ObjectCreateController::class)->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddeware());
-$router->add("/types/create", TypesCreateController::class)->middleware(new LoginRequiredMiddeware());
-$router->add("/types", TypesController::class);
-$router->add("/flower/(?P<id>\d+)/delete", ObjectDeleteController::class)->middleware(new LoginRequiredMiddeware());
-$router->add("/flower/(?P<id>\d+)/edit", ObjectUpdateController::class)->middleware(new LoginRequiredMiddeware());
-$router->add("/logIn", LogInController::class);
-
+$router->add("/types/create", TypesCreateController::class)->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddeware());
+$router->add("/types", TypesController::class)->middleware(new HistoryMiddeware());
+$router->add("/flower/(?P<id>\d+)/delete", ObjectDeleteController::class)->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddeware());
+$router->add("/flower/(?P<id>\d+)/edit", ObjectUpdateController::class)->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddeware());
+$router->add("/logIn", LogInController::class)->middleware(new HistoryMiddeware());
+$router->add("/logout", LogOutController::class);
 // $router->add("/flower-api", BaseRestController::class);
 // $router->add("/flower-api/(?P<id>\d+)", BaseRestController::class);
 // $router->add("/flower-api/(?P<id>\d+)/edit", BaseRestController::class);
