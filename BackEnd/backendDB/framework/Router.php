@@ -47,6 +47,9 @@ class Router {
     // функция которая должна по url найти маршрут и вызывать его функцию get
     // если маршрут не найден, то будет использоваться контроллер по умолчанию
     public function get_or_default($default_controller) {
+        session_set_cookie_params(60*60*60);
+        session_start();
+
         $url = $_SERVER["REQUEST_URI"]; // получили url
         $newRoute = null; // добавили переменную под маршрут
         $path=parse_url($url,PHP_URL_PATH);

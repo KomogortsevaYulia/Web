@@ -20,7 +20,7 @@ class LoginRequiredMiddeware extends BaseMiddleware {
          if ($data['id']=='') {
              // если не совпали, надо указать такой заголовок
              // именно по нему браузер поймет что надо показать окно для ввода юзера/пароля
-             header('WWW-Authenticate: Basic realm="Space objects"');
+             header('WWW-Authenticate: Basic realm="Flowers objects"');
              http_response_code(401); // ну и статус 401 -- Unauthorized, то есть неавторизован
              exit; // прерываем выполнение скрипта
          }
