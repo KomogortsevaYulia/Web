@@ -18,11 +18,7 @@
             <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Главная</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/search">Поиск</a>
-            </li>
-            
+            </li>            
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="/types">Типы</a>
             </li>
@@ -31,9 +27,21 @@
                 <a class="nav-link" aria-current="page" href="/?type={{$type->id}}">{{$type->name}}</a>
             </li>
             @endforeach
+            @auth
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="/flowers/create">Добавить цветок</a>
             </li>
+            @endauth
+            @auth
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/logout">Выйти</a>
+            </li>
+            @endauth
+            @guest
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/login">Войти</a>
+            </li>
+            @endguest
         </ul>
         </div>
 </nav>

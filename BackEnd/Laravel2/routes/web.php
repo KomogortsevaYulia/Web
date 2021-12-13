@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Flower;
 use App\Http\Controllers\FlowersController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +19,9 @@ use App\Http\Controllers\FlowersController;
 
 Route::get('/', [FlowersController::Class ,"index"])->name("/");
 Route::resource('flowers', FlowersController::Class );
-
- 
+Route::get('/login', [LoginController::Class ,"show"])->name("login");
+Route::post('/login', [LoginController::Class ,"login"]);
+Route::get('/logout', [LoginController::Class ,"logout"]);
 
 Route::get('/types', function (Request $request) {
     return view('types',[
@@ -27,18 +29,4 @@ Route::get('/types', function (Request $request) {
     ]);
 })->name("type");
 
-Route::get('/search', function (Request $request) {
 
-    $objects =Flower::query();
-    if($request->query("type")=="Все"){
-        $objects =Flower::query();
-    }else{
-        $objects=$objects->where("type",$request->query("type"));
-    }
-
-    $objects=$objects->get();
-
-    return view('search',[
-        "title"=>'Поиск', "objects"=> $objects,"typeSelect"=>$request->query("type")
-    ]);
-});

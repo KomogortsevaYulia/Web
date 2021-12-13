@@ -9,6 +9,12 @@ use App\Models\Flower;
 
 class FlowersController extends Controller
 {
+    function __construct(){
+        $this->middleware("auth",["except"=>["index","show"]]);
+        
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -112,7 +118,7 @@ class FlowersController extends Controller
         $object->info=$request->input("info");
         $object->type=$request->input("type");
         $object->save();
-        return redirect()->route("flower",["id"=>$id]);
+        return redirect()->route("flowers.show",["flower"=>$id]);
     }
 
     /**

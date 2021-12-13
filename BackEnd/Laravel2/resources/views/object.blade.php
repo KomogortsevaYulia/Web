@@ -6,10 +6,10 @@
   <ul class="nav nav-pills">
     <li class="nav-item">
      
-      <a href="/flower/{{$object->id}} ?show=image" @class(["btn","me-2","btn-primary "=>$is_image,"btn-link"=>!$is_image]) >Картинка</a>
+      <a href="/flowers/{{$object->id}} ?show=image" @class(["btn","me-2","btn-primary "=>$is_image,"btn-link"=>!$is_image]) >Картинка</a>
       </li>
     <li class="nav-item ">
-      <a href="/flower/{{$object->id}} ?show=info" @class(["btn","me-2","btn-primary "=>$is_info,"btn-link"=>!$is_info])>Описание</a>
+      <a href="/flowers/{{$object->id}} ?show=info" @class(["btn","me-2","btn-primary "=>$is_info,"btn-link"=>!$is_info])>Описание</a>
       
     </li>
   </ul>
