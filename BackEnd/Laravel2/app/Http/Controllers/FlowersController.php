@@ -94,7 +94,7 @@ class FlowersController extends Controller
     public function edit($id)
     {
         $object =Flower::query()->where("id",$id)->first();
-
+        123123124
         return view('update',[
             "object" => $object,
             "title" => $object->title
