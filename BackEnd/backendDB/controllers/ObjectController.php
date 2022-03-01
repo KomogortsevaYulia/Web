@@ -19,7 +19,7 @@ class ObjectController extends BasePlantsTwigController {
     {
         $context = parent::getContext();
         // создам запрос, под параметр создаем переменную my_id в запросе
-        $query = $this->pdo->prepare("SELECT image,info,description,id FROM flowers WHERE id= :my_id");
+        $query = $this->pdo->prepare("SELECT title,image,type,info,description,id FROM flowers WHERE id= :my_id");
         // подвязываем значение в my_id 
         $query->bindValue("my_id", $this->params['id']);
         $query->execute(); // выполняем запрос
@@ -28,7 +28,15 @@ class ObjectController extends BasePlantsTwigController {
 
         $context['my_id'] = $data['id'];
         $context['description'] = $data['description'];
-
+        $context['title'] = $data['title'];
+        
+        $query = $this->pdo->prepare("SELECT name FROM types WHERE id= :my_id");
+        // подвязываем значение в my_id 
+        $query->bindValue("my_id", $data['type']);
+        $query->execute(); // выполняем запрос
+        // тянем данные
+        $data1 = $query->fetch();
+        $context['name_types'] = $data1['name'];
 
         if(isset($_GET['show'])){
             if($_GET['show']=='image'){

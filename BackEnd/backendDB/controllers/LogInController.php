@@ -10,7 +10,7 @@ class LogInController extends TwigBaseController {
          
         
          // создам запрос, под параметр создаем переменную my_id в запросе
-         $query = $this->pdo->prepare("SELECT * FROM users WHERE username= :user and password =:password");
+         $query = $this->pdo->prepare("SELECT * FROM old_users WHERE username= :user and password =:password");
          // подвязываем значение в my_id 
          $query->bindValue("user", $user);
          $query->bindValue("password", $password);

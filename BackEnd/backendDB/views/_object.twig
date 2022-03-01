@@ -2,6 +2,8 @@
 {% extends  "__layout.twig" %}
 
 {% block content %}
+<h1>{{title}}</h1>
+<h3>Вид: {{name_types}}</h3>
 <p>{{description}}</p>
 <ul class="nav nav-pills">
   <li class="nav-item">
@@ -10,7 +12,7 @@
     {{ forms.btn('Картинка', '/flower/'~ my_id ~'?show=image', type == 'картинка','nav-link active') }}
     </li>
   <li class="nav-item ">
-    {{forms.btn('Описание', '/flower/'~ my_id ~'?show=info',type == 'текст','nav-link  active' ) }}
+    {{forms.btn('Описание ухода', '/flower/'~ my_id ~'?show=info',type == 'текст','nav-link  active' ) }}
     
   </li>
 </ul>
